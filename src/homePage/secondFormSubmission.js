@@ -15,17 +15,16 @@ export default class SubmissionForm extends React.Component {
         tatooName: event.target.value, 
         imageUrl: event.target.value, 
         tatooDescription: event.target.value  });
-    // this.setState({ tatooName: event.target.value });
-    // this.setState({ imageUrl: event.target.value });
-    // this.setState({ tatooDescription: event.target.value });
+    
   }
+
 
   handleSubmit = event => {
     event.preventDefault();
 
     const submission = {
       name: this.state.name,
-      tattooName: this.state.tatooName,
+      tattooName: this.state.tattooName,
       imageUrl: this.state.imageUrl,
       tattooDescription: this.state.tattooDescription
     };
@@ -40,7 +39,7 @@ export default class SubmissionForm extends React.Component {
   render() {
     let imgPreview;
     if (this.state.imageUrl) {
-        imgPreview = <img src={this.state.imageUrl} alt='' />;
+        imgPreview = <img src={this.state.imageUrl} alt='your suggested tattoo' />;
     }
     return (
       <div>
@@ -55,7 +54,7 @@ export default class SubmissionForm extends React.Component {
       <p>Tattoo Name:</p>
       <input
         type='text'
-        name='tatooName'
+        name='tattooName'
         onChange={this.handleChange}
       />
       <p>Tattoo Image Url:</p>
@@ -69,7 +68,7 @@ export default class SubmissionForm extends React.Component {
 <p>Tattoo Description:</p>
       <textarea
         type='text'
-        name='tatooDescription'
+        name='tattooDescription'
         onChange={this.handleChange}
       />
           
