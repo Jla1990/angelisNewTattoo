@@ -4,6 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+/*styles */
+import "./assets/styles/index.scss";
+import "./assets/styles/form.scss";
+import "./assets/styles/submissions.scss";
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

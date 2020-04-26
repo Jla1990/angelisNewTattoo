@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
 
 class SubmissionForm extends Component {
   constructor(props) {
@@ -24,7 +23,7 @@ class SubmissionForm extends Component {
     }
     return (
       <form onSubmit={this.mySubmitHandler}>
-      <h1>Hello {this.state.username}</h1>
+      <h1>Make a submission</h1>
       <p>Enter your name:</p>
       <input
         type='text'
