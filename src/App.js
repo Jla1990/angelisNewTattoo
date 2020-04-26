@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NavBar from "./homePage/navBar";
 import Submissions from "./submissionsPage/submissions";
 import Hero from "./homePage/hero";
-import SubmissionForm from "./homePage/secondFormSubmission";
+import SubmissionForm from "./homePage/formSubmission";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
