@@ -10,14 +10,12 @@ export default class SubmissionForm extends React.Component {
   }
 
   handleChange = event => {
+      console.log(event.target);
     this.setState({ 
-        name: event.target.value , 
-        tatooName: event.target.value, 
-        imageUrl: event.target.value, 
-        tatooDescription: event.target.value  });
+        [event.target.name]: event.target.value, 
+      });
     
   }
-
 
   handleSubmit = event => {
     event.preventDefault();
