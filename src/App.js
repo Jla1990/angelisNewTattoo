@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "./homePage/navBar";
 import Submissions from "./submissionsPage/submissions";
-import SubmissionForm from "./homePage/formsubmission";
 import Hero from "./homePage/hero";
+import SubmissionForm from "./homePage/secondFormSubmission";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -22,6 +22,8 @@ class App extends Component {
                   <Hero />
                   <hr></hr>
                   <SubmissionForm />
+                  <hr></hr>
+                  
                   
                 </React.Fragment>
               );

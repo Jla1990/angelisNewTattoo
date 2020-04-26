@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class SubmissionForm extends Component {
   constructor(props) {
@@ -16,6 +17,8 @@ class SubmissionForm extends Component {
     let val = event.target.value;
     this.setState({[nam]: val});
   }
+
+
   render() {
     let imgPreview;
     if (this.state.imageUrl) {
@@ -57,4 +60,6 @@ class SubmissionForm extends Component {
     );
   }
 }
+
+
 export default SubmissionForm;
