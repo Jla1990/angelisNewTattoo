@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react'
+import { useState, useReducer } from 'React'
 
 /**
  * @title : Form State Management
