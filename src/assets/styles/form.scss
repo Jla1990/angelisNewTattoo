@@ -1,0 +1,60 @@
+form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 4vw 0vw;
+    @media(max-width: 500px) {
+        width: 80%;
+    }
+    h1 {
+        font-weight: 200;
+        font-size: 5vw;
+        margin: 0rem;
+        padding-bottom: 2rem;
+        text-align: center;
+        @media (max-width: 500px) {
+            padding-bottom: 1rem;
+        }
+    }
+    p {
+        font-size: 12px;
+        font-weight: 200;
+        @media(max-width: 500px) {
+            margin: .5rem;
+            font-size: 3vw;
+        }
+    }
+    input {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #dbd5d5;
+        @media (max-width: 500px) {
+            padding: .5rem;
+        }
+    }
+    textarea {
+        width: 100%;
+        padding: 1rem;
+        height: 10vw;
+        border: 1px solid #dbd5d5;
+        @media(max-width: 500px) {
+        padding: .5rem;
+        }
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding: 2rem 0rem;
+    }
+    input[type=submit],
+    button[type=submit] {
+        background-color: #DDD;
+        color: black;
+        font-size: 12px;
+        font-weight: 500;
+        width: 100%;
+        padding: .8rem;
+        margin-top: 20px;
+    }
+}
