@@ -1,2 +1,2 @@
-FLASK_APP=crud.py
+FLASK_APP=api.py
 FLASK_ENV=development
