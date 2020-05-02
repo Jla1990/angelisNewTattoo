@@ -1,7 +1,7 @@
-
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from main import app 
 import os
 
 app = Flask(__name__)
@@ -9,7 +9,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'crud.sqlite')
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
-
 
 class Submission(db.Model):
     submission_id = db.Column(db.Integer, primary_key=True)
@@ -38,10 +37,10 @@ submissions_schema = SubmissionSchema(many=True)
 # endpoint to create new submission
 @app.route("/submission", methods=["POST"])
 def add_submission():
-    submittor = request.json['submittor']
-    idea_name = request.json['idea_name']
-    idea_desc = request.json['idea_desc']
-    idea_image_url = request.json['idea_image_url']
+    submittor = request.json['name']
+    idea_name = request.json['tattooName']
+    idea_desc = request.json['tattooDescription']
+    idea_image_url = request.json['imageUrl']
     upvotes = 0
 
     new_submission = Submission(submittor, idea_name, idea_desc, idea_image_url,upvotes)

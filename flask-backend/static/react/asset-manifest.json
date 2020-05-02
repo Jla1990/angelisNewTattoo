@@ -1,7 +1,23 @@
 {
-  "main.css": "css/main.d845ed5e.css",
-  "main.css.map": "css/main.d845ed5e.css.map",
-  "main.js": "js/main.aa16996e.js",
-  "main.js.map": "js/main.aa16996e.js.map",
-  "media/logo.svg": "media/logo.5d5d9eef.svg"
+  "files": {
+    "main.css": "/static/react/static/css/main.dd327a5e.chunk.css",
+    "main.js": "/static/react/static/js/main.0da3157c.chunk.js",
+    "main.js.map": "/static/react/static/js/main.0da3157c.chunk.js.map",
+    "runtime-main.js": "/static/react/static/js/runtime-main.790371b7.js",
+    "runtime-main.js.map": "/static/react/static/js/runtime-main.790371b7.js.map",
+    "static/js/2.a87027e7.chunk.js": "/static/react/static/js/2.a87027e7.chunk.js",
+    "static/js/2.a87027e7.chunk.js.map": "/static/react/static/js/2.a87027e7.chunk.js.map",
+    "../../templates/index.html": "/static/react/../../templates/index.html",
+    "precache-manifest.7cb4f709f44948471047d05d5f6996d9.js": "/static/react/precache-manifest.7cb4f709f44948471047d05d5f6996d9.js",
+    "service-worker.js": "/static/react/service-worker.js",
+    "static/css/main.dd327a5e.chunk.css.map": "/static/react/static/css/main.dd327a5e.chunk.css.map",
+    "static/js/2.a87027e7.chunk.js.LICENSE.txt": "/static/react/static/js/2.a87027e7.chunk.js.LICENSE.txt",
+    "static/media/angeli.jpg": "/static/react/static/media/angeli.8d045433.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.790371b7.js",
+    "static/js/2.a87027e7.chunk.js",
+    "static/css/main.dd327a5e.chunk.css",
+    "static/js/main.0da3157c.chunk.js"
+  ]
 }
