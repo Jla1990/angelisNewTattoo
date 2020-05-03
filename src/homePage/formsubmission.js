@@ -11,10 +11,10 @@ export default class SubmissionForm extends React.Component {
 
   handleChange = event => {
       console.log(event.target);
-    this.setState({ 
-        [event.target.name]: event.target.value, 
+    this.setState({
+        [event.target.name]: event.target.value,
       });
-    
+
   }
 
   handleSubmit = event => {
@@ -27,7 +27,7 @@ export default class SubmissionForm extends React.Component {
       tattooDescription: this.state.tattooDescription
     };
 
-    axios.post(`https://jsonplaceholder.typicode.com/users`, { submission })
+    axios.post(`http://localhost:5000/submission`, { submission })
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -69,7 +69,7 @@ export default class SubmissionForm extends React.Component {
         name='tattooDescription'
         onChange={this.handleChange}
       />
-          
+
           <button type="submit">Add</button>
         </form>
       </div>
