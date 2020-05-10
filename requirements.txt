@@ -145,6 +145,7 @@ pep8==1.7.1
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==7.0.0
+pipenv==2018.11.26
 pkginfo==1.5.0.1
 pluggy==0.13.1
 ply==3.11
@@ -233,6 +234,7 @@ ujson==1.35
 unicodecsv==0.14.1
 urllib3==1.25.8
 virtualenv==20.0.20
+virtualenv-clone==0.5.4
 watchdog==0.10.2
 wcwidth==0.1.8
 webencodings==0.5.1
@@ -249,3 +251,4 @@ yapf==0.28.0
 yfpy==3.1.1
 zict==2.0.0
 zipp==2.2.0
+gunicorn==19.9.0
