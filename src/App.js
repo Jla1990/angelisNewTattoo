@@ -7,6 +7,15 @@ import SubmissionForm from "./homePage/formsubmission";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
+
+  componentDidMount() {
+    fetch('http://localhost:5000/submission')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ submissions: data })
+    })
+    .catch(console.log)
+  }
   render() {
     return (
       <div>

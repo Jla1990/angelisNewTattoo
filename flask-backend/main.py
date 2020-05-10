@@ -70,6 +70,7 @@ def add_submission():
 @app.route("/submission", methods=["GET"])
 def get_submission():
     all_submissions = Submission.query.all()
+    print(all_submissions)
     result = submissions_schema.dump(all_submissions)
     return jsonify(result)
 
