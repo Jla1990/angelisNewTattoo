@@ -1,87 +1,42 @@
-import React, { Component } from "react";
+import React from 'react';
+import axios from 'axios';
 
-const Submissions = () => {
-  return (
-    <div className="submissions-container">
-      {/* first submission */}
-      <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
+export default class Submissions extends React.Component {
+	state = {
+		sub: []
+	  }
+	
 
-      {/* second submission  */}
-      <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
+	componentDidMount() {
+		axios.get('http://localhost:5000/submission')
+		.then(res => {
+			const sub = res.data;
+			this.setState({ sub });
+			console.log(sub);		
+		})
+		.catch(error => {
+		  console.log(error);
+		});
+		
+	  }
 
-		  {/* second submission  */}
-		  <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-			<div className="image-control">
-		    <img src="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" alt="generic image" />
-			</div>
-		    <p>Submitted by: </p>
-		  </div>
+  render() {
 
-		  {/* second submission  */}
-		  <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
-
-		  {/* second submission  */}
-		  <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
-
-		  {/* second submission  */}
-		  <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
-
-
-		  {/* second submission  */}
-		  <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
-
-
-		  {/* second submission  */}
-		  <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
-
-
-		  {/* second submission  */}
-		  <div className="submission">
-		    <h1>Title of Tattoo</h1>
-			<p>Description: </p>
-		    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/10558/ARCH-kimon-maritz-183501-unsplash.jpg" alt="generic image" />
-		    <p>Submitted by: </p>
-		  </div>
+    return (
+      <div className="submissions-container">
+		{ this.state.sub.map(sub => 
+		<div className="submission" key={sub.self}>
+		<h1>{sub.idea_name}</h1>
+		<p><b>Tattoo Idea Description:</b> {sub.idea_desc} </p>
+		
+      <img src={sub.idea_image_url}   />
+  
+		<p><b>Submitted By: </b>{sub.submittor}</p>
+	  </div>
+		
+		)}
 
     </div>
-  );
-};
-
-export default Submissions;
+    )
+  }
+}

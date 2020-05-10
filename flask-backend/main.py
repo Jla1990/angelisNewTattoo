@@ -13,7 +13,7 @@ logging.getLogger('flask_cors').level = logging.DEBUG
 @app.route('/')
 @app.route('/submit')
 def home():
-    return render_template('index.html', token = "flask and react app")
+    return render_template('../public/index.html')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'crud.sqlite')
@@ -70,6 +70,7 @@ def add_submission():
 @app.route("/submission", methods=["GET"])
 def get_submission():
     all_submissions = Submission.query.all()
+    print(all_submissions)
     result = submissions_schema.dump(all_submissions)
     return jsonify(result)
 
