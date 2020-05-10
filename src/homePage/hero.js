@@ -3,11 +3,12 @@ import Angeli from '../assets/images/angeli.jpg';
 
 const Hero = () => {
   return (
-    
-      <div className="hero">
-    <h1>Angeli's Next Tattoo </h1>  
-    <img src={Angeli} alt="a photo of Octavia Butler"/>
+    <main>
+   <div className="new-hero">
+    <img src={Angeli} alt="a photo of Angeli"/>
+    <h2><span>Angeli's Next Tattoo.</span></h2>
     </div>
+    </main>
   );
 };
 

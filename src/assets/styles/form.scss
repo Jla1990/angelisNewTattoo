@@ -5,15 +5,18 @@ form {
     padding: 4vw 0vw;
     @media(max-width: 500px) {
         width: 80%;
+        padding: 40px 0px;
     }
     h1 {
-        font-weight: 200;
-        font-size: 5vw;
+        font-family: 'Sanchez Slab W03', Courier, serif;
+        font-weight:normal;
+        font-size: 3vw;
         margin: 0rem;
         padding-bottom: 2rem;
         text-align: center;
         @media (max-width: 500px) {
             padding-bottom: 1rem;
+            font-size: 1.5rem;
         }
     }
     p {
@@ -49,12 +52,15 @@ form {
     }
     input[type=submit],
     button[type=submit] {
-        background-color: #DDD;
+        background-color: #f5f5f5;
         color: black;
         font-size: 12px;
         font-weight: 500;
         width: 100%;
         padding: .8rem;
         margin-top: 20px;
+        @media(max-width: 767px) {
+            background-color: #f5f5f5;
+        }
     }
 }

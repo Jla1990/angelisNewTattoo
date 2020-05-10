@@ -1,11 +1,12 @@
 .submissions-container {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     display: grid;
     grid-gap: 2rem;
     font-family: Avenir, Roboto, Helvetica, san-serif;
     font-size: 90%;
     text-align: left;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     @media (max-width: 767px) {
         width: 90%;
     }
@@ -16,6 +17,7 @@
     padding: 2rem;
     }
     h1 {
+    font-family: 'Sanchez Slab W03', Courier, serif;
     margin: 0rem;
     line-height: 1.2;
     font-weight: normal;
