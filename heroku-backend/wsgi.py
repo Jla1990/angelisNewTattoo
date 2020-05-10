@@ -1,2 +1,0 @@
-import getApp
-app = getApp()
