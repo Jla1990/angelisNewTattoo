@@ -1,8 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
+
+
 
 export default class SubmissionForm extends React.Component {
+
   state = {
+    submission: false,
     name: '',
     tattooName: '',
     imageUrl: '',
@@ -10,14 +15,12 @@ export default class SubmissionForm extends React.Component {
   }
 
   handleChange = event => {
-      console.log(event.target);
     this.setState({
         [event.target.name]: event.target.value,
       });
-
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const submission = {
@@ -29,16 +32,18 @@ export default class SubmissionForm extends React.Component {
 
     axios.post(`http://localhost:5000/submission`, { submission })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+        this.setState(() => ({
+          submission: true
+        }))
+        
+      })   
   }
 
   render() {
-    let imgPreview;
-    if (this.state.imageUrl) {
-        imgPreview = <img src={this.state.imageUrl} alt='your suggested tattoo' />;
+    if (this.state.submission === true) {
+      return <Redirect to='/thank-you' />
     }
+ 
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -48,6 +53,7 @@ export default class SubmissionForm extends React.Component {
         type='text'
         name='name'
         onChange={this.handleChange}
+        required
       />
       <p>Tattoo Name:</p>
       <input
@@ -61,7 +67,7 @@ export default class SubmissionForm extends React.Component {
         name='imageUrl'
         onChange={this.handleChange}
       />
-      {imgPreview}
+      {/* {imgPreview} */}
 
 <p>Tattoo Description:</p>
       <textarea
@@ -69,7 +75,6 @@ export default class SubmissionForm extends React.Component {
         name='tattooDescription'
         onChange={this.handleChange}
       />
-
           <button type="submit">Add</button>
         </form>
       </div>

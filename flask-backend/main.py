@@ -64,7 +64,7 @@ def add_submission():
     db.session.add(new_submission)
     db.session.commit()
 
-    return str(new_submission)
+    return str(new_submission), 200
 
 # endpoint to show all submissions
 @app.route("/submission", methods=["GET"])

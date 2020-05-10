@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import "./assets/styles/index.scss";
 import "./assets/styles/form.scss";
 import "./assets/styles/submissions.scss";
+import "./assets/styles/thankyou.scss";
 
 
 ReactDOM.render(
