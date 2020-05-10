@@ -1,0 +1,2 @@
+import getApp
+app = getApp()

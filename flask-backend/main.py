@@ -35,10 +35,16 @@ class Submission(db.Model):
         self.idea_image_url = idea_image_url
         self.upvotes = upvotes
 
-class SubmissionSchema(ma.Schema):
+class SubmissionSchema(ma.SQLAlchemySchema):
     class Meta:
-        # Fields to expose
-        fields = ('submission_id,','submittor','idea_name','idea_desc','idea_image_url','upvotes')
+        model = Submission
+
+    submission_id = ma.auto_field()
+    submittor = ma.auto_field()
+    idea_name = ma.auto_field()
+    idea_desc = ma.auto_field()
+    idea_image_url = ma.auto_field()
+    upvotes = ma.auto_field()
 
 #define variables for instances of a single submission or a list of many submissions
 submission_schema = SubmissionSchema()
@@ -47,7 +53,7 @@ submissions_schema = SubmissionSchema(many=True)
 # endpoint to create new submission
 @app.route("/submission", methods=["POST"])
 def add_submission():
-    print(request.json)
+    # print(request.json)
     submittor = str(request.json['submission']['name'])
     idea_name = str(request.json['submission']['tattooName'])
     idea_desc = str(request.json['submission']['tattooDescription'])
@@ -70,7 +76,6 @@ def add_submission():
 @app.route("/submission", methods=["GET"])
 def get_submission():
     all_submissions = Submission.query.all()
-    print(all_submissions)
     result = submissions_schema.dump(all_submissions)
     return jsonify(result)
 
@@ -87,7 +92,6 @@ def submission_delete(id):
     db.session.delete(submission)
     db.session.commit()
 
-
 # endpoint to add an upvote to a specific submission
 @app.route("/submission/<id>", methods=["PUT"])
 def submission_upvote(id):
@@ -96,7 +100,6 @@ def submission_upvote(id):
     upvote_count += 1
 
     submission.upvotes = upvote_count
-
     db.session.commit()
     return submission_schema.jsonify(submission)
 
@@ -105,3 +108,5 @@ def getApp():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    #switch this run code in for when we deploy to production on ec2
+    # app.run(debug=True, host = "0.0.0.0", port =80)
