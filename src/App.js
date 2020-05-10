@@ -4,6 +4,7 @@ import Submissions from "./submissionsPage/submissions";
 import Hero from "./homePage/hero";
 import SubmissionForm from "./homePage/formsubmission";
 import thankYouPage from './thankYou/thankYou';
+import Backstory from './homePage/backstory';
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -24,6 +25,8 @@ class App extends Component {
               return (
                 <React.Fragment>
                   <Hero />
+                  <hr></hr>
+                  <Backstory />
                   <hr></hr>
                   <SubmissionForm />
                   <hr></hr>

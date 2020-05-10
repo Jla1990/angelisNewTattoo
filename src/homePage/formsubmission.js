@@ -1,13 +1,21 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
-
+import newId from '../utils/newId';
 
 
 export default class SubmissionForm extends React.Component {
 
+  incrementCount() {
+    this.setState((state) => {
+      // Important: read `state` instead of `this.state` when updating.
+      return {count: state.count + 1}
+    });
+  }
+
   state = {
     submission: false,
+    id: newId(),
     name: '',
     tattooName: '',
     imageUrl: '',
@@ -24,6 +32,7 @@ export default class SubmissionForm extends React.Component {
     event.preventDefault();
 
     const submission = {
+      id: newId(),
       name: this.state.name,
       tattooName: this.state.tattooName,
       imageUrl: this.state.imageUrl,
