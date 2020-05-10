@@ -100,5 +100,8 @@ def submission_upvote(id):
     db.session.commit()
     return submission_schema.jsonify(submission)
 
+def getApp():
+    return app
+
 if __name__ == '__main__':
     app.run(debug=True)
