@@ -1,9 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## configuration
 
-## Available Scripts
+This repo is built using react and flask.
 
-In the project directory, you can run:
+## development
+1. clone repo down
+2. run npm install in root directory 
+3. run pip install flask in root directory 
 
+<<<<<<< HEAD
 ### `npm start`
 
 Runs the app in the development mode.<br />
@@ -70,3 +74,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 python3 main.py
+=======
+## localhost
+1. run 'npm run build' in root directory. this will create a build under flask-backend
+2. cd into flask-backend
+3. run 'python main.py' from here. this should start up flask on localhost:5000 
+4. open the webpage http://127.0.0.1:5000/
+>>>>>>> master
