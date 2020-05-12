@@ -35,7 +35,7 @@ class Submission(db.Model):
         self.idea_image_url = idea_image_url
         self.upvotes = upvotes
 
-class SubmissionSchema(ma.SQLAlchemySchema):
+class SubmissionSchema(ma.Schema):
     class Meta:
         model = Submission
 
