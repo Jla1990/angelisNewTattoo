@@ -8,7 +8,7 @@ export default class Submissions extends React.Component {
   //calls on API to display data
   componentDidMount() {
     axios
-      .get("http://localhost:5000/submission")
+      .get("http://13.57.18.68/submission")
       .then((res) => {
         const sub = res.data;
         this.setState({ sub });
@@ -30,7 +30,7 @@ export default class Submissions extends React.Component {
 
     }
     axios
-      .put("http://localhost:5000/submission/" + id, {
+      .put("http://13.57.18.68/submission/" + id, {
         sub: bestSubmission,
       })
       .then((res) => {
@@ -38,7 +38,7 @@ export default class Submissions extends React.Component {
       })
     this.setState({
       sub: bestSubmission,
-      
+
     });
   }
   onClick() {

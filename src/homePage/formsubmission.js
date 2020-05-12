@@ -31,7 +31,7 @@ export default class SubmissionForm extends React.Component {
     };
 
     axios
-      .post(`http://localhost:5000/submission`, { submission })
+      .post(`http://13.57.18.68/submission`, { submission })
       .then((res) => {
         this.setState(() => ({
           submission: true,
