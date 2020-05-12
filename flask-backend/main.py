@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS, cross_origin
+from waitress import serve
 import json
 import logging
 import os
@@ -109,4 +110,5 @@ def getApp():
 if __name__ == '__main__':
     # app.run(debug=True)
     #switch this run code in for when we deploy to production on ec2
-    app.run(debug=True, host = "0.0.0.0", port =80)
+    # app.run(debug=True, host = "0.0.0.0", port =80)
+    serve(app, host="0.0.0.0", port=8080)
