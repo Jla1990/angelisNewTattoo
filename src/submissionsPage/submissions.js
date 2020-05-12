@@ -1,62 +1,72 @@
-import React from 'react';
-import axios from 'axios';
-import newId from '../utils/newId';
-
+import React from "react";
+import axios from "axios";
 
 export default class Submissions extends React.Component {
-	state = {
-		sub: []
-	  }
+  state = {
+    sub: [],
+  };
+  //calls on API to display data
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/submission")
+      .then((res) => {
+        const sub = res.data;
+        this.setState({ sub });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-	  
-	componentDidMount() {
-		axios.get('http://localhost:5000/submission')
-		.then(res => {
-			const sub = res.data;
-			this.setState({ sub });
-			console.log(sub);
-			sub.id = newId();		
-		})
-		.catch(error => {
-		  console.log(error);
-		});
+  // handles voting functionality and sets state for upvotes in json
+  vote(i) {
+    let bestSubmission = [...this.state.sub];
+    let id = bestSubmission[i].submission_id;
+    bestSubmission[i].upvotes++;
+    function swap(array, i, j) {
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
 
-		
-		
-	  }
+    }
+    axios
+      .put("http://localhost:5000/submission/" + id, {
+        sub: bestSubmission,
+      })
+      .then((res) => {
+        console.log("database was updated", res);
+      })
+    this.setState({
+      sub: bestSubmission,
+      
+    });
+  }
+  onClick() {
+    this.disabled = true;
+  }
 
-	  constructor(props) {
-		super(props);
-		this.onClick = this.onClick.bind(this);
-	  }
-
-	  onClick(e) {
-		this.props.update(this.props.data.id);
-	  }
 
   render() {
-
-		return (
+    return (
       <div className="submissions-container">
-		{ this.state.sub.map(sub => 
-		<div className="submission"  id={newId()}>
-		<h1>{sub.idea_name}</h1>
-		<p><b>Tattoo Idea Description:</b> {sub.idea_desc} </p>
-		
-      <img src={sub.idea_image_url}   />
-  
-		<p><b>Submitted By: </b>{sub.submittor}</p>
-		<div className="vote">
-		<button onClick={this.onClick}>Up</button>
-			<p>{sub.upvotes}</p>
-  </div>
-
-	  </div>
-		
-		)}
-
-    </div>
-    )
+        {this.state.sub.map((sub, i) => (
+          <div className="submission" key={i} id={i}>
+            <h1>{sub.idea_name}</h1>
+            <p>
+              <b>Tattoo Idea Description:</b> {sub.idea_desc}{" "}
+            </p>
+            <img src={sub.idea_image_url} />
+            <p>
+              <b>Submitted By: </b>
+              {sub.submittor}
+            </p>
+            <div>
+              <button id="voteButton" onClick={this.vote.bind(this, i)} votes={sub.upvotes}>Vote</button>
+              <p>Number of votes: {sub.upvotes}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
   }
 }
-
